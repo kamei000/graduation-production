@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K,S,卒業制作</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>提供する話題のジャンルを選択してください。</h2>
+    
+    <select class="form-select" required aria-label="select example" id="selectWadai">
+            <option>選択してください</option>
+            <option id="0">雑談</option>
+            <option id="1">ゲーム</option>
+            <option id="2">趣味</option>
+            <option id="3">漫画</option>
+            <option id="4">アニメ</option>
+            <option id="5">ご飯</option>
+    </select>
+    <br><br><br><br><br>
+    <button id="btn" class="me">選択完了</button>
+    <br><br>
+    <h1><p id="setWadai" class="text"></p></h1>
+</body>
+<script>
+    const btn = document.getElementById('btn');
+    const setWadai = document.getElementById("setWadai");
+    const selectWadai = document.getElementById("selectWadai");
+
+    const genre = [["他を選ぼう！","ここには何もない","選択してください"],
+        ["よく行く場所","休日の予定","池袋で一番好きな場所"],
+        ["どんなゲーム？","おすすめのゲーム","最近気になっているゲーム"],
+        ["gg","qq","vv"],
+        ["ff","kk","ll"],
+        ["rr","bb","cc"],
+        ["uu","mm","xx"]
+    ];
+    btn.addEventListener('click', () => {
+        const num = selectWadai.selectedIndex;
+
+        const randomIndex = Math.floor(Math.random()*3);
+
+        const currentWadai = genre[num][randomIndex];
+        setWadai.innerText = currentWadai;
+    });
+</script>
+
+    <button type="button" class="a"><a href="K,S,2.html">メモ</a></button>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K,S,卒業制作</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+        <h1>抽出結果</h1>
+        <br><br>
+        <h2 class="ww">ここに話題が表示される</h2>
+        <br>
+        <button type="button" class="contact"><a href="K,S,-卒業制作.html">戻る</a></button>
+        <br><br>
+        <label for="note">メモ</label><br>
+        <textarea id="mydata_in" name="mydata_in" rows="10"></textarea><br>
+        <input type="button" value="保存" onclick="save();" >
+        一時保存します<br ><br>
+
+        <input type="button" value="保存したものを確認" onclick="view();" >
+        <span id="mydata_out"></span>
+        <script language="javascript" type="text/javascript">
+            // 読込
+            function load() {
+                if(!localStorage.getItem('mydata')) {
+                    alert("保存データはありません");
+                } 
+                else {
+                   mydata = localStorage.getItem('mydata');
+                    document.getElementById("mydata_in").value = mydata;
+                }
+            }
+            // 保存
+            function save() {
+                var mydata = document.getElementById("mydata_in").value;
+                localStorage.setItem('mydata', mydata);
+            }
+            // 確認
+            function view() {
+                if(!localStorage.getItem('mydata')) {
+                    alert("保存データはありません");
+                }
+                else {
+                    mydata = localStorage.getItem('mydata');
+                    document.getElementById("mydata_out").innerText = mydata;
+                }
+            }
+        </script>
+</body>
+</html>

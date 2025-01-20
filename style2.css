@@ -1,0 +1,29 @@
+body{
+    background-color: bisque;
+}
+h1{
+    text-align: center;
+}
+h2{
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    display:block;
+    /*width: 50%;*/
+    padding: 40px;
+}
+
+button[type="button"]{
+    font-size: large;
+    border-radius: 5px;
+    border-radius: 4px;
+    display: block;
+    margin: 0 auto;
+}
+.contact:active{
+    background: rgb(139, 139, 139);
+    transform: translateY(3px);
+}
+textarea{
+    resize: none;
+    width: 300px;
+}

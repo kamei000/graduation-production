@@ -43,8 +43,9 @@
     const setWadai = document.getElementById("setWadai");
     const selectWadai = document.getElementById("selectWadai");
     const like_btn = document.getElementById('like');
-    const setLike = document.getElementById('setLike')
-
+    const setLike = document.getElementById('setLike');
+    const max[[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0]];
+    
     const genre = [["他を選んでください","ここには何もない","選択してください"],
         ["よく行く場所","休日の予定","池袋で一番好きな場所"],
         ["どんなゲーム？","おすすめのゲーム","最近気になっているゲーム"],
@@ -53,7 +54,7 @@
         ["rr","bb","cc"],
         ["uu","mm","xx"]
     ];
-    const array = [[""],[0],[0],[0],[0],[0],[0]];
+    const array = [[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0]];
     btn.addEventListener('click', () => {
         const num = selectWadai.selectedIndex;              //プルダウンの配列番号をnumに代入
         const randomIndex = Math.floor(Math.random()*3);    //乱数をrandomIndexに代入
@@ -64,6 +65,12 @@
         const num = selectWadai.selectedIndex;
         const num2 = selectWadai.options.selectedIndex;
         array[num][num2] = array[num][num2]+1;
+        
+        /*for(const i=0;i<array.length;i++){
+            for(const j=0;j<array.length;j++){
+                max[i][num2] = Math.max(array[i][num2]).selectedIndex;
+            }
+        }*/
         setLike.innerText = array[num][num2];
     });
     

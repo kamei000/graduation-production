@@ -1,0 +1,52 @@
+body{
+    background-color: bisque;
+}
+h2{
+    text-align: center;
+}
+
+select{
+    text-align: center;
+    display: block;
+    margin:0 auto;
+    height: 40px;
+    width:150px;
+    border-radius: 4px;
+    
+}
+/*.save{
+    font-size: large;
+    border-radius: 5px;
+    border-radius: 4px;
+    display: block;
+    margin:0 auto;
+}*/
+.choose{
+    display: block;
+    margin:0 auto;
+}
+.a{
+    font-size: large;
+    border-radius: 5px;
+    border-radius: 4px;
+    display: block;
+    margin: 0 auto;
+}
+.contact:active{
+    background: rgb(139, 139, 139);
+    transform: translateY(3px);
+}
+p{
+    font-size: 60px;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    padding: 40px;
+}
+textarea{
+    resize: none;
+    width: 300px;
+}
+.choose:active{
+    background: rgb(139, 139, 139);
+    transform: translateY(3px);
+}

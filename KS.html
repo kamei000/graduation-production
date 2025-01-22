@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>提供する話題のジャンルを選択してください。</h2>
+    <h1>提供する話題のジャンルを選択してください。</h1>
     
     <select class="form-select" required aria-label="select example" id="selectWadai">
             <option>選択してください</option>
@@ -22,7 +22,7 @@
     <br><br><br><br><br>
     <button id="btn" class="choose">選択完了</button>
     <br><br>
-    <h1><p id="setWadai" class="text"></p></h1>
+    <h2><p id="setWadai" class="text"></p></h2>
 
     <button id="like" class="like"></button>
     <h3><p id="setLike" class="lank"></p></h3>
@@ -62,8 +62,9 @@
         setWadai.innerText = currentWadai;                  //setWadai IDのついたpタグに送信
     });
     like_btn.addEventListener('click',() => {
+        console.log(setWadai);
         const num = selectWadai.selectedIndex;
-        const num2 = genre[num].indexOf(setWadai);
+        const num2 = genre[num].indexOf(setWadai.substring(5));
         array[num][num2] = array[num][num2]+1;
         const send = array[num][num2];
         setLike.innerText = send;

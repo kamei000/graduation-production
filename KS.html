@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K,S,卒業制作</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>提供する話題のジャンルを選択してください。</h1>
+    
+    <select class="form-select" required aria-label="select example" id="selectWadai">
+            <option>選択してください</option>
+            <option id="0">雑談</option>
+            <option id="1">ゲーム</option>
+            <option id="2">趣味</option>
+            <option id="3">漫画</option>
+            <option id="4">アニメ</option>
+            <option id="5">ご飯</option>
+    </select>
+    <br><br><br><br><br>
+    <button id="btn" class="choose">選択完了</button>
+    <br><br>
+    <button id="first">No.1</button>
+    <button id="second">No.2</button>
+    <h2><p id="setWadai" class="text"></p></h2>
+    <p id="fabo"></p>
+
+    <button id="like" class="like"></button>
+    <div>
+    <h3><p id="setLike" class="lank"></p></h3>
+    </div>
+
+    <br><br><br>
+
+    <!--memo-->
+    <label for="note">メモ</label><br>
+        <textarea id="mydata_in" name="mydata_in" rows="10"></textarea><br>
+        <input class="save" type="button" value="保存" onclick="save();" >
+        一時保存します<br ><br>
+        <input type="button" value="保存したものを確認" onclick="view();" >
+        <span id="mydata_out"></span>
+        <br><br><br><br><br><br><br><br><br><br>
+</body>
+<script>
+    const btn = document.getElementById('btn');
+    const setWadai = document.getElementById("setWadai");
+    const selectWadai = document.getElementById("selectWadai");
+    const like_btn = document.getElementById('like');
+    const setLike = document.getElementById('setLike')
+    const fabo = document.getElementById('fabo');
+    const first = document.getElementById('first');
+    const second = document.getElementById('second');
+    const ws = ["","","","","","",""];
+
+    const array = [[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0]];
+    const genre = [["他を選んでください","ここには何もない","選択してください"],
+        ["よく行く場所","休日の予定","池袋で一番好きな場所"],
+        ["どんなゲーム？","おすすめのゲーム","最近気になっているゲーム"],
+        ["gg","qq","vv"],
+        ["ff","kk","ll"],
+        ["rr","bb","cc"],
+        ["uu","mm","xx"]
+    ];
+    btn.addEventListener('click', () => {
+        const num = selectWadai.selectedIndex;              //プルダウンの配列番号をnumに代入
+        const randomIndex = Math.floor(Math.random()*3);    //乱数をrandomIndexに代入
+        const currentWadai = genre[num][randomIndex];       //話題テーマが入った配列にnumとrandomIndexを参照させる
+        setWadai.innerText = currentWadai;                  //setWadai IDのついたpタグに送信
+        fabo.innerText = "いいね数："+array[num][randomIndex];
+    });
+    like_btn.addEventListener('click',() => {
+        console.log(setWadai.textContent);
+        const num = selectWadai.selectedIndex;
+        const num2 = genre[num].indexOf(setWadai.textContent);
+        //console.log(genre[num][num2]);
+        //console.log(array[num][num2]);
+        array[num][num2] = array[num][num2]+1;
+        /*for(const i=0;i<array[0].length;i++){
+            const max = genre[num].indexOf(Math.max(array[num][i]));
+            const ws = genre[num][max];
+            ws[i] = ws;
+            console.log(ws[i]);
+        }*/
+        fabo.innerText = "いいね数："+array[num][num2];
+    });
+
+    first.addEventListener('click',() => {
+        const num = selectWadai.selectedIndex;
+        const max = [array[num].length-1];
+        for(const i=0;i<array[num].length;i++){
+            max[i] = array[num][i];
+        }
+        for(const i=0;i<max.length-1;i++){
+            if(max[i]<max[i+1]){
+                const ws = max[i];
+                max[i] = max[i+1];
+                max[i+1] = ws;
+            }
+        }
+        const num1 = array[num].indexOf(max[0]);
+        const num2 = genre[num][num1];
+        console.log(num1);
+        console.log(num2);
+    });
+    second.addEventListener('click',() => {
+
+    });
+</script>
+<script language="javascript" type="text/javascript">
+    function load() {
+        if(!localStorage.getItem('mydata')) {
+            alert("保存データはありません");
+        } 
+        else {
+           mydata = localStorage.getItem('mydata');
+            document.getElementById("mydata_in").value = mydata;
+        }
+    }
+    function save() {
+        var mydata = document.getElementById("mydata_in").value;
+        localStorage.setItem('mydata', mydata);
+    }
+    function view() {
+        if(!localStorage.getItem('mydata')) {
+            alert("保存データはありません");
+        }
+        else {
+            mydata = localStorage.getItem('mydata');
+            document.getElementById("mydata_out").innerText = mydata;
+        }
+    }
+</script>
+
+    <!--<button type="button" class="a"><a href="K,S,2.html">メモ</a></button>-->
+</body>
+</html>

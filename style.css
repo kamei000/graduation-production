@@ -39,6 +39,7 @@ select{
     margin:0 auto;
     font-size: large;
     border-radius: 8px;
+    touch-action: manipulation;
 
     font-family: "Kiwi Maru", serif;
     font-weight: 400;
@@ -81,6 +82,7 @@ textarea{
     height: 60px;
     border-radius: 100%;
     position: relative;
+        touch-action: manipulation;
 
     background: transparent;
     box-shadow: none;

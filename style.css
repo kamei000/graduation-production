@@ -1,3 +1,6 @@
+html {
+    touch-action: manipulation;
+}
 body{
     background-color: rgb(255, 227, 194);
     font-family: "Kiwi Maru", serif;

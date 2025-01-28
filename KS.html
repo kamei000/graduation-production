@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>K,S,卒業制作</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet">
 </head>
 <body>
     <h1>提供する話題のジャンルを選択してください。</h1>
@@ -22,8 +25,8 @@
     <br><br><br><br><br>
     <button id="btn" class="choose">選択完了</button>
     <br><br>
-    <button id="first">No.1</button>
-    <button id="second">No.2</button>
+    <!--<button id="first">No.1</button>
+    <button id="second">No.2</button>-->
     <h2><p id="setWadai" class="text"></p></h2>
     <p id="fabo"></p>
 
@@ -50,12 +53,9 @@
     const like_btn = document.getElementById('like');
     const setLike = document.getElementById('setLike')
     const fabo = document.getElementById('fabo');
-    const first = document.getElementById('first');
-    const second = document.getElementById('second');
-    const ws = ["","","","","","",""];
 
     const array = [[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0]];
-    const genre = [["他を選んでください","ここには何もない","選択してください"],
+    const genre = [["他を選択してください。"],
         ["よく行く場所","休日の予定","池袋で一番好きな場所"],
         ["どんなゲーム？","おすすめのゲーム","最近気になっているゲーム"],
         ["gg","qq","vv"],
@@ -65,49 +65,43 @@
     ];
     btn.addEventListener('click', () => {
         const num = selectWadai.selectedIndex;              //プルダウンの配列番号をnumに代入
-        const randomIndex = Math.floor(Math.random()*3);    //乱数をrandomIndexに代入
-        const currentWadai = genre[num][randomIndex];       //話題テーマが入った配列にnumとrandomIndexを参照させる
-        setWadai.innerText = currentWadai;                  //setWadai IDのついたpタグに送信
-        fabo.innerText = "いいね数："+array[num][randomIndex];
-    });
-    like_btn.addEventListener('click',() => {
-        console.log(setWadai.textContent);
-        const num = selectWadai.selectedIndex;
-        const num2 = genre[num].indexOf(setWadai.textContent);
-        //console.log(genre[num][num2]);
-        //console.log(array[num][num2]);
-        array[num][num2] = array[num][num2]+1;
-        /*for(const i=0;i<array[0].length;i++){
-            const max = genre[num].indexOf(Math.max(array[num][i]));
-            const ws = genre[num][max];
-            ws[i] = ws;
-            console.log(ws[i]);
-        }*/
-        fabo.innerText = "いいね数："+array[num][num2];
-    });
-
-    first.addEventListener('click',() => {
-        const num = selectWadai.selectedIndex;
-        const max = [array[num].length-1];
-        for(const i=0;i<array[num].length;i++){
-            max[i] = array[num][i];
+        if(num==0){
+            setWadai.innerText = genre[0][0];
         }
-        for(const i=0;i<max.length-1;i++){
-            if(max[i]<max[i+1]){
-                const ws = max[i];
-                max[i] = max[i+1];
-                max[i+1] = ws;
+        else{
+            const randomIndex = Math.floor(Math.random()*3);    //乱数をrandomIndexに代入
+            const currentWadai = genre[num][randomIndex];       //話題テーマが入った配列にnumとrandomIndexを参照させる
+            setWadai.innerText = currentWadai;                  //setWadai IDのついたpタグに送信
+            if(num==0){
+                fabo.innerText = "";
+            }
+            else{
+                fabo.innerText = "いいね数："+array[num][randomIndex];
             }
         }
-        const num1 = array[num].indexOf(max[0]);
-        const num2 = genre[num][num1];
-        console.log(num1);
-        console.log(num2);
     });
-    second.addEventListener('click',() => {
-
+    like_btn.addEventListener('click',() => {
+        //console.log(setWadai.textContent);
+        const num = selectWadai.selectedIndex;
+        const num2 = genre[num].indexOf(setWadai.textContent);
+        array[num][num2] = array[num][num2]+1;
+        const iine = localStorage.setItem('iine',array[num][num2])
+        if(num==0){
+            fabo.innerText = "";
+        }
+        else if(setWadai.textContent==""){
+            fabo.innrtText = "";
+        }
+        else if(setWadai.textContent=="他を選択してください。"){
+            fabo.innerText = "";
+        }
+        else{
+            fabo.innerText = "いいね数："+iine;
+        }
     });
 </script>
+
+
 <script language="javascript" type="text/javascript">
     function load() {
         if(!localStorage.getItem('mydata')) {
@@ -124,7 +118,9 @@
     }
     function view() {
         if(!localStorage.getItem('mydata')) {
+            document.getElementById("mydata_out").innerText = "";
             alert("保存データはありません");
+            
         }
         else {
             mydata = localStorage.getItem('mydata');

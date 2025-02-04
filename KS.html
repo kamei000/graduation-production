@@ -37,6 +37,7 @@
 
     <br><br><br>
 
+    
     <!--memo-->
     <label for="note">メモ</label><br>
         <textarea id="mydata_in" name="mydata_in" rows="10"></textarea><br>
@@ -44,90 +45,14 @@
         一時保存します<br ><br>
         <input type="button" value="保存したものを確認" onclick="view();" >
         <span id="mydata_out"></span>
+    <br>
+    <a href="KS2.html"><button class="game" id="game">ミニゲーム</button></a>
         <br><br><br><br><br><br><br><br><br><br>
 </body>
-<script>
-    const btn = document.getElementById('btn');
-    const setWadai = document.getElementById("setWadai");
-    const selectWadai = document.getElementById("selectWadai");
-    const like_btn = document.getElementById('like');
-    const setLike = document.getElementById('setLike')
-    const fabo = document.getElementById('fabo');
-
-    const array = [[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0]];
-    const genre = [["他を選択してください。"],
-        ["よく行く場所","休日の予定","池袋で一番好きな場所"],
-        ["どんなゲーム？","おすすめのゲーム","最近気になっているゲーム"],
-        ["gg","qq","vv"],
-        ["ff","kk","ll"],
-        ["rr","bb","cc"],
-        ["uu","mm","xx"]
-    ];
-    btn.addEventListener('click', () => {
-        const num = selectWadai.selectedIndex;              //プルダウンの配列番号をnumに代入
-        if(num==0){
-            setWadai.innerText = genre[0][0];
-        }
-        else{
-            const randomIndex = Math.floor(Math.random()*3);    //乱数をrandomIndexに代入
-            const currentWadai = genre[num][randomIndex];       //話題テーマが入った配列にnumとrandomIndexを参照させる
-            setWadai.innerText = currentWadai;                  //setWadai IDのついたpタグに送信
-            if(num==0){
-                fabo.innerText = "";
-            }
-            else{
-                fabo.innerText = "いいね数："+array[num][randomIndex];
-            }
-        }
-    });
-    like_btn.addEventListener('click',() => {
-        //console.log(setWadai.textContent);
-        const num = selectWadai.selectedIndex;
-        const num2 = genre[num].indexOf(setWadai.textContent);
-        array[num][num2] = array[num][num2]+1;
-        const iine = localStorage.setItem('iine',array[num][num2])
-        if(num==0){
-            fabo.innerText = "";
-        }
-        else if(setWadai.textContent==""){
-            fabo.innrtText = "";
-        }
-        else if(setWadai.textContent=="他を選択してください。"){
-            fabo.innerText = "";
-        }
-        else{
-            fabo.innerText = "いいね数："+iine;
-        }
-    });
-</script>
+<script src="KS-main.js"></script>
 
 
-<script language="javascript" type="text/javascript">
-    function load() {
-        if(!localStorage.getItem('mydata')) {
-            alert("保存データはありません");
-        } 
-        else {
-           mydata = localStorage.getItem('mydata');
-            document.getElementById("mydata_in").value = mydata;
-        }
-    }
-    function save() {
-        var mydata = document.getElementById("mydata_in").value;
-        localStorage.setItem('mydata', mydata);
-    }
-    function view() {
-        if(!localStorage.getItem('mydata')) {
-            document.getElementById("mydata_out").innerText = "";
-            alert("保存データはありません");
-            
-        }
-        else {
-            mydata = localStorage.getItem('mydata');
-            document.getElementById("mydata_out").innerText = mydata;
-        }
-    }
-</script>
+<script src="KS-memo.js"></script>
 
     <!--<button type="button" class="a"><a href="K,S,2.html">メモ</a></button>-->
 </body>

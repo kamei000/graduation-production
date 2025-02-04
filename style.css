@@ -39,7 +39,6 @@ select{
     margin:0 auto;
     font-size: large;
     border-radius: 8px;
-    touch-action: manipulation;
 
     font-family: "Kiwi Maru", serif;
     font-weight: 400;
@@ -74,6 +73,10 @@ textarea{
 .lank{
     text-align: flex;
 }
+.game{
+    display: block;
+    margin-left: auto;
+}
 /*------------------------------------------------------*/
 .like{
     display: block;
@@ -82,7 +85,6 @@ textarea{
     height: 60px;
     border-radius: 100%;
     position: relative;
-        touch-action: manipulation;
 
     background: transparent;
     box-shadow: none;

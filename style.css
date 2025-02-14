@@ -1,0 +1,132 @@
+html {
+    touch-action: manipulation;
+}
+body{
+    background-color: rgb(255, 227, 194);
+    font-family: "Kiwi Maru", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+h1{
+    text-align: center;
+    
+}    
+.link{
+    text-align: center;
+    display: block;
+    font-size: 20px;
+    margin:0 auto;
+}
+select{
+    text-align: center;
+    display: block;
+    margin:0 auto;
+    height: 40px;
+    width:180px;
+    font-size: large;
+    border-radius: 8px;
+    border-color: rgb(0, 0, 0);
+
+    font-family: "Kiwi Maru", serif;
+    font-weight: 400;
+    font-style: normal;
+    
+}
+/*.save{
+    font-size: large;
+    border-radius: 5px;
+    border-radius: 4px;
+    display: block;
+    margin:0 auto;
+}*/
+.choose{
+    display: block;
+    margin:0 auto;
+    font-size: large;
+    border-radius: 8px;
+
+    font-family: "Kiwi Maru", serif;
+    font-weight: 400;
+    font-style: normal;
+    box-shadow: none;
+    background-color: #ffd0d0;
+    border-color: rgb(255, 58, 58);
+}
+.choose:active{
+    background: rgb(255, 90, 90);
+    transform: translateY(3px);
+}
+
+.a{
+    font-size: large;
+    border-radius: 5px;
+    border-radius: 4px;
+    display: block;
+    margin: 0 auto;
+}
+.text{
+    font-size:40px;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    padding: 40px;
+}
+textarea{
+    resize: none;
+    width: 300px;
+}
+
+.lank{
+    text-align: flex;
+}
+.game{
+    display: block;
+    margin-left: auto;
+}
+.first{
+    background-color: rgba(255, 0, 0, 0.432);
+    height: 30px;
+    width: 100px;
+    
+    box-shadow: none;
+    border: none;
+    outline: none;
+}
+.first:active{
+    background: rgb(255, 0, 0);
+    transform: translateY(3px);
+}
+/*------------------------------------------------------*/
+.like{
+    display: block;
+    margin:0 auto;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    position: relative;
+
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    outline: none;
+  }
+.like:active{
+    transform: translateY(3px);
+}
+.like::before,
+.like::after {
+  content: "";  /* 疑似要素に必須 */
+  width: 50%;   /* ハートの丸い部分の大きさにかかわる */
+  height: 80%;  /* ハートの高さにかかわる */
+  background: #E0548E; /* ハートの色 */
+  border-radius: 25px 25px 0 0; /* ハートの半円を生成 */
+  display: block; /* ブロック要素にする */
+  position: absolute; /* 相対位置に指定 */
+}
+.like::before {
+  transform: rotate(-45deg); /* 左に回転 */
+  left: 14%;                 /* 左からの位置を指定 */
+}
+.like::after {
+  transform: rotate(45deg);  /* 右に回転 */
+  right: 14%;                /* 右からの位置を指定 */
+}

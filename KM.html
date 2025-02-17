@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>↘最初にジャンルを選択してください。↙</h1>
+    <h1>↘最初にカテゴリを選択してください。↙</h1>
     <br>
     <select class="form-select" required aria-label="select example" id="selectWadai">
             <option>選択してください</option>
@@ -43,10 +43,13 @@
     <!--memo-->
     <label for="note">メモ</label><br>
         <textarea id="mydata_in" name="mydata_in" rows="10"></textarea><br>
+        一時保存します<br>
         <input class="save" type="button" value="保存" onclick="save();" >
-        一時保存します<br ><br>
+        <button id="save" onclick="save2();">保存2</button>
+        <br ><br>
         <input type="button" value="保存したものを確認" onclick="view();" >
-        <span id="mydata_out"></span>
+        <br><p id="mydata_out"></p>
+        <p id="my_data_out"></p>
     <br>
     <!--<a href="KS2.html"><button class="game" id="game">ミニゲーム</button></a>-->
         <br><br><br><br><br><br><br><br><br><br>

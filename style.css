@@ -95,6 +95,12 @@ textarea{
     background: rgb(255, 0, 0);
     transform: translateY(3px);
 }
+.aa{
+    float: right;
+}
+.bb{
+    float: right;
+}
 /*------------------------------------------------------*/
 .like{
     display: block;
@@ -114,19 +120,19 @@ textarea{
 }
 .like::before,
 .like::after {
-  content: "";  /* 疑似要素に必須 */
-  width: 50%;   /* ハートの丸い部分の大きさにかかわる */
-  height: 80%;  /* ハートの高さにかかわる */
-  background: #E0548E; /* ハートの色 */
-  border-radius: 25px 25px 0 0; /* ハートの半円を生成 */
-  display: block; /* ブロック要素にする */
-  position: absolute; /* 相対位置に指定 */
+  content: "";
+  width: 50%;
+  height: 80%;
+  background: #E0548E;
+  border-radius: 25px 25px 0 0;
+  display: block;
+  position: absolute;
 }
 .like::before {
-  transform: rotate(-45deg); /* 左に回転 */
-  left: 14%;                 /* 左からの位置を指定 */
+  transform: rotate(-45deg);
+  left: 14%;
 }
 .like::after {
-  transform: rotate(45deg);  /* 右に回転 */
-  right: 14%;                /* 右からの位置を指定 */
+  transform: rotate(45deg);
+  right: 14%;
 }
